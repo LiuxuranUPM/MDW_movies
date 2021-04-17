@@ -28,5 +28,9 @@ public class Rental {
         return movie;
     }
 
+    public String getMovieTitle(){
+        return this.movie.getTitle();
+    }
+
 }
 
