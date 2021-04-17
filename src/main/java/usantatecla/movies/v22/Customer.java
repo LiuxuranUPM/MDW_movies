@@ -36,23 +36,11 @@ public class Customer {
     }
 
     private double getTotalCharge() {
-        double result = 0;
-        Iterator<Rental> rentals = this.rentals.iterator();
-        while (rentals.hasNext()) {
-            Rental each = rentals.next();
-            result += each.getCharge();
-        }
-        return result;
+        return this.rentals.stream().mapToDouble(Rental::getCharge).sum();
     }
 
     private int getTotalFrequentRenterPoints() {
-        int result = 0;
-        Iterator<Rental> rentals = this.rentals.iterator();
-        while (rentals.hasNext()) {
-            Rental each = rentals.next();
-            result += each.getFrequentRenterPoints();
-        }
-        return result;
+        return this.rentals.stream().mapToInt(Rental::getFrequentRenterPoints).sum();
     }
 
 }
